@@ -12,7 +12,7 @@
             <path fill-rule="evenodd" clip-rule="evenodd" d="M3 2.25C2.80109 2.25 2.61032 2.32902 2.46967 2.46967C2.32902 2.61032 2.25 2.80109 2.25 3V9.75C2.25 9.94891 2.32902 10.1397 2.46967 10.2803C2.61032 10.421 2.80109 10.5 3 10.5H3.75C4.16421 10.5 4.5 10.8358 4.5 11.25C4.5 11.6642 4.16421 12 3.75 12H3C2.40326 12 1.83097 11.7629 1.40901 11.341C0.987053 10.919 0.75 10.3467 0.75 9.75V3C0.75 2.40326 0.987053 1.83097 1.40901 1.40901C1.83097 0.987053 2.40326 0.75 3 0.75H9.75C10.3467 0.75 10.919 0.987053 11.341 1.40901C11.7629 1.83097 12 2.40326 12 3V3.75C12 4.16421 11.6642 4.5 11.25 4.5C10.8358 4.5 10.5 4.16421 10.5 3.75V3C10.5 2.80109 10.421 2.61032 10.2803 2.46967C10.1397 2.32902 9.94891 2.25 9.75 2.25H3Z" fill="white"/>
           </svg>
         </button>
-        <div v-show="codeCopied">
+        <div v-show="codeCopied" class="come-up">
           copied!
         </div>
       </div>
@@ -103,6 +103,7 @@ export default {
   border-radius: 8px;
   font-family: inherit;
   margin-bottom: 12px;
+  width: 100%;
 }
 .code__bar {
   background-color: #476BD2;
@@ -118,6 +119,8 @@ export default {
 }
 .code__bar .actions {
   font-family: 'Material Icons';
+  display: flex;
+  align-items: center;
 }
 .code__bar button {
   font-family: 'Material Icons';
@@ -147,5 +150,14 @@ export default {
   font-family: 'Roboto Mono', monospace  !important;
   font-size: 0.775rem;
   line-height: 1.5rem;
+}
+.come-up {
+  animation: come-up .3s ease-in-out forwards;
+  display: inline-flex;
+}
+
+@keyframes come-up {
+  0% {opacity: 0;transform: translateY(10px);}
+  100% {opacity: 1;transform: translateY(0);}
 }
 </style>
